@@ -3,57 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quinta El Mezquite | Eventos Premium en Monterrey</title>
+<title>Quinta El Mezquite | Eventos Exclusivos en Monterrey</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
---bg:#0f1115;
---accent:#5bbf74;
---gold:#d6b56e;
---light:#f5f3ee;
---muted:#a1a1aa;
+--primary:#5bbf74;
+--gold:#c6a75e;
+--dark:#1a1a1a;
+--light:#f8f6f1;
+--muted:#6b7280;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--light);
+background:var(--light);
+color:var(--dark);
 line-height:1.6;
 overflow-x:hidden;
 }
 
+/* Fondo animado elegante */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at 20% 30%, rgba(198,167,94,.15), transparent 40%),
+           radial-gradient(circle at 80% 70%, rgba(91,191,116,.15), transparent 40%);
+animation:moveBg 12s infinite alternate ease-in-out;
+z-index:-1;
+}
+
+@keyframes moveBg{
+0%{transform:translate(0,0)}
+100%{transform:translate(-40px,-30px)}
+}
+
 h1,h2,h3{
-font-family:'Playfair Display',serif;
+font-family:'Cormorant Garamond',serif;
 letter-spacing:.5px;
 }
 
 section{
 padding:6rem 8vw;
-position:relative;
 }
 
 /* HERO */
 
 header{
-height:100vh;
+height:95vh;
 background:url('hero.jpg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
+color:white;
 }
 
-header::before{
+header::after{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.85));
+background:rgba(0,0,0,.55);
 }
 
 .hero{
@@ -64,29 +81,29 @@ max-width:900px;
 
 .hero h1{
 font-size:3.5rem;
-margin-bottom:1.5rem;
+margin-bottom:1.2rem;
 }
 
 .hero p{
 font-size:1.2rem;
-opacity:.85;
+opacity:.9;
 }
 
 .btn{
-margin-top:2.5rem;
+margin-top:2rem;
 display:inline-block;
 padding:1rem 2.5rem;
-border-radius:100px;
+border-radius:50px;
 font-weight:600;
 text-decoration:none;
-background:linear-gradient(135deg,var(--accent),#3e9b58);
-color:#04200f;
+background:linear-gradient(135deg,var(--primary),#3e9b58);
+color:#063016;
 transition:.4s;
 }
 
 .btn:hover{
-transform:translateY(-5px);
-box-shadow:0 20px 40px rgba(0,0,0,.5);
+transform:translateY(-4px);
+box-shadow:0 20px 40px rgba(0,0,0,.3);
 }
 
 /* FEATURES */
@@ -98,24 +115,25 @@ gap:2rem;
 }
 
 .card{
-background:rgba(255,255,255,0.03);
+background:white;
 padding:2.5rem;
-border-radius:2rem;
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.05);
+border-radius:1.5rem;
+box-shadow:0 20px 40px rgba(0,0,0,.08);
 transition:.4s;
-font-size:1.05rem;
+text-align:center;
+font-size:1.1rem;
 }
 
 .card:hover{
-transform:translateY(-10px);
-border-color:var(--gold);
+transform:translateY(-8px);
+border-bottom:4px solid var(--gold);
 }
 
-/* GALLERY */
+/* GALERÍA */
 
 .section-dark{
-background:#08090c;
+background:#111;
+color:white;
 }
 
 .gallery{
@@ -126,36 +144,33 @@ gap:1.5rem;
 
 .gallery img{
 width:100%;
-height:320px;
+height:300px;
 object-fit:cover;
 border-radius:1.5rem;
-transition:.6s;
-filter:brightness(.8);
+transition:.5s;
 }
 
 .gallery img:hover{
-transform:scale(1.07);
-filter:brightness(1);
+transform:scale(1.05);
 }
 
-/* PRICE */
+/* PRECIO */
 
 .price-box{
 text-align:center;
-background:linear-gradient(145deg,#1a1d23,#101215);
-border:1px solid rgba(255,255,255,0.05);
+background:linear-gradient(135deg,var(--gold),#9c7d3f);
+color:white;
 padding:4rem;
-border-radius:2.5rem;
-box-shadow:0 40px 80px rgba(0,0,0,.6);
+border-radius:2rem;
+box-shadow:0 30px 60px rgba(0,0,0,.2);
 }
 
 .price-box h2{
 font-size:2.2rem;
 margin-bottom:1rem;
-color:var(--gold);
 }
 
-/* TESTIMONIAL */
+/* TESTIMONIO */
 
 .testimonial{
 max-width:800px;
@@ -163,7 +178,6 @@ margin:auto;
 text-align:center;
 font-style:italic;
 font-size:1.2rem;
-opacity:.9;
 }
 
 /* FORM */
@@ -176,25 +190,24 @@ margin:auto;
 }
 
 input,textarea{
-padding:1rem 1.2rem;
+padding:1rem;
 border-radius:1rem;
-border:none;
-background:#15171c;
-color:white;
+border:1px solid #ddd;
 font-size:1rem;
 }
 
 input:focus,textarea:focus{
-outline:1px solid var(--accent);
+outline:2px solid var(--primary);
 }
 
 button{
-background:linear-gradient(135deg,var(--accent),#3e9b58);
+background:var(--primary);
 border:none;
 padding:1rem;
 border-radius:1rem;
 font-weight:600;
 cursor:pointer;
+color:#063016;
 transition:.3s;
 }
 
@@ -208,7 +221,7 @@ footer{
 text-align:center;
 padding:4rem 2rem;
 color:var(--muted);
-background:#050608;
+background:#f0ece4;
 font-size:.9rem;
 }
 
@@ -228,7 +241,7 @@ justify-content:center;
 font-size:30px;
 color:white;
 text-decoration:none;
-box-shadow:0 20px 40px rgba(0,0,0,.5);
+box-shadow:0 20px 40px rgba(0,0,0,.3);
 transition:.3s;
 }
 
@@ -239,6 +252,7 @@ transform:scale(1.1);
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
 }
+
 </style>
 </head>
 
@@ -246,8 +260,8 @@ transform:scale(1.1);
 
 <header>
 <div class="hero">
-<h1>Tu evento merece algo extraordinario</h1>
-<p>Quinta El Mezquite — Espacio exclusivo en Monterrey para bodas, cumpleaños y eventos privados.</p>
+<h1>✨ Tu evento merece algo extraordinario ✨</h1>
+<p>Quinta El Mezquite — Espacio exclusivo en Monterrey para bodas, cumpleaños y celebraciones privadas 🎉🥂</p>
 <a href="#contacto" class="btn">Consultar disponibilidad</a>
 </div>
 </header>
@@ -258,14 +272,14 @@ transform:scale(1.1);
 <div class="card">🏡 Quinta privada completa</div>
 <div class="card">🏊 Alberca amplia</div>
 <div class="card">🔥 Asador techado</div>
-<div class="card">🎉 Área de eventos</div>
+<div class="card">🎊 Área para celebraciones</div>
 <div class="card">🚗 Estacionamiento privado</div>
 <div class="card">🌿 Ambiente campestre premium</div>
 </div>
 </section>
 
 <section class="section-dark">
-<h2 style="text-align:center;margin-bottom:3rem;">Galería</h2>
+<h2 style="text-align:center;margin-bottom:3rem;">Galería 📸</h2>
 <div class="gallery">
 <img src="foto1.jpeg">
 <img src="foto2.jpeg">
@@ -287,21 +301,21 @@ transform:scale(1.1);
 
 <section>
 <div class="price-box">
-<h2>Desde $8,500 MXN por evento</h2>
+<h2>Desde $8,500 MXN por evento 🎉</h2>
 <p>Capacidad ideal para 50–80 personas</p>
 <a href="#contacto" class="btn">Reservar fecha</a>
 </div>
 </section>
 
 <section>
-<h2 style="text-align:center;margin-bottom:2rem;">Lo que dicen nuestros clientes</h2>
+<h2 style="text-align:center;margin-bottom:2rem;">Lo que dicen nuestros clientes 💬</h2>
 <div class="testimonial">
 “Celebramos los XV de mi hija aquí y fue perfecto. El lugar es hermoso y muy privado.” — Mariana G.
 </div>
 </section>
 
 <section id="contacto">
-<h2 style="text-align:center;margin-bottom:2rem;">Solicita disponibilidad</h2>
+<h2 style="text-align:center;margin-bottom:2rem;">Solicita disponibilidad 📅</h2>
 <form name="reserva" method="POST" data-netlify="true">
 <input type="hidden" name="form-name" value="reserva" />
 <input name="nombre" placeholder="Nombre" required>
@@ -320,4 +334,3 @@ Quinta El Mezquite © 2026 | Monterrey, N.L.
 
 </body>
 </html>
-
